@@ -1,0 +1,23 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "rebar3.cmd compile",
+        },
+        {
+            "label": "build run",
+            "type": "shell",
+            "command": "erl",
+            "args": ["-pa", "_build\\default\\lib\\resourceManager\\ebin", "-s", "resourceManager_ser"],
+            "dependsOn": "compile",
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
